@@ -4,6 +4,7 @@ var port = 5115;
 
 var numbers = [];
 var operator = [];
+var answer = "";
 
 var requestHandler = function (req, res){
   var route = req.url;
@@ -15,8 +16,10 @@ var requestHandler = function (req, res){
       operator.push(split[i]);
     }
   }
+  res.setHeader('Content-Type', 'text/html');
   console.log("Numbers in the uri: "+numbers);
   console.log("Operation in the uri: "+ operator);
+  
   logic(numbers[0], numbers[1], operator);
   // console.log('req: '+route);
   // console.log(res);
